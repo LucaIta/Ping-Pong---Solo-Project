@@ -27,6 +27,7 @@ var pingPongFunction = function(arrayToModify){
   return arrayToModify;
 };
 
+
 /* businnes logic END */
 
 /* user interface logic START */
@@ -38,7 +39,12 @@ $(document).ready(function(){
     var arrayNumUpToUserInput = (contToUserInput(userInput));
     var arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
     console.log(arrayNumPingPonged);
+    arrayNumPingPonged.forEach(function(outputListElement){
+      $("#output").append("<li>" + outputListElement + "</li>")
+    });
+  });
+    // $("#output").append(<li></li>)
   })
-});
+
 
 /* user interface logic END */
