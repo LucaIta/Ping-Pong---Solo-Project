@@ -46,6 +46,7 @@ var pingPongFunction = function(arrayToModify){
 var mode = 1; /* remove */
 var stepCounter = 0; /* remove */
 var userInput = 0;
+var arrayNumPingPonged = [];
 
 $(document).ready(function(){
   $("form").submit(function(event){
@@ -53,7 +54,7 @@ $(document).ready(function(){
     $("ul").empty();
     userInput = (parseInt($("#userInput").val()));
     var arrayNumUpToUserInput = (contToUserInput(userInput));
-    var arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
+    arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
     arrayNumPingPonged.forEach(function(outputListElement){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
@@ -61,25 +62,24 @@ $(document).ready(function(){
 
   $("#btnMode1").click(function(){ /* remove */
     mode = 1;  /* remove */
-    console.log(mode); /* remove */
-    $("body").removeClass("pingPongAnime");
-    $("body").addClass("standardClass");
+    $("html").removeClass("pingPongAnime");
+    $("html").addClass("standardClass");
   })
 
   $("#btnMode2").click(function(){ /* remove */
     mode = 2;  /* remove */
-    console.log(mode); /* remove */
-    $("body").removeClass("standardClass");
-    $("body").addClass("pingPongAnime");
+    $("html").removeClass("standardClass");
+    $("html").addClass("pingPongAnime");
   })
-/* test AREA start */
+/* test AREA start  I should work on it I want the stepByStep feature */
 
-  $("#step").click(function(){
-    if (stepCounter < userInput){
-    stepCounter ++;
-    console.log(stepCounter);
-    };
-  })
+  // $("#step").click(function(){
+  //   if (stepCounter < userInput){
+  //   $("#output").append("<li>" +arrayNumPingPonged[stepCounter] + "</li>");
+  //   stepCounter ++;
+  //   console.log(stepCounter);
+  //   };
+  // })
 
 /* test AREA end */
 })

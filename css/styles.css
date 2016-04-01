@@ -4,13 +4,14 @@
 }
 
 .standardClass body {
-  background-color:  #e6f9ff;
-  font
+  background-color: #e6f7ff;
 }
 
 .standardClass h1 , .standardClass h4 , .standardClass h5 {
-  color:   #4775d1;
+  color: #4775d1;
 }
 
-.pingPongAnime {
+.pingPongAnime body {
+  background-color: white;
+  color: black;
 }
