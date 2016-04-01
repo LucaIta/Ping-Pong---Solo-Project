@@ -24,6 +24,8 @@ var pingPongFunction = function(arrayToModify){
         arrayToModify[indexPosition] = "ping";
       };
 
+/* this following function replace certain numbers with gifs instead of words */
+
     } else if (mode === 2){
       if (numberToCheck % 15 === 0) {
         arrayToModify[indexPosition] = "<img src=img/ping.gif>";
@@ -43,47 +45,34 @@ var pingPongFunction = function(arrayToModify){
 
 /* user interface logic START */
 
-var mode = 1; /* remove */
-var stepCounter = 0; /* remove */
+var mode = 1;
 var userInput = 0;
 var arrayNumPingPonged = [];
+var arrayNumUpToUserInput = [];
 
 $(document).ready(function(){
   $("form").submit(function(event){
     event.preventDefault();
     $("ul").empty();
     userInput = (parseInt($("#userInput").val()));
-    var arrayNumUpToUserInput = (contToUserInput(userInput));
+    arrayNumUpToUserInput = (contToUserInput(userInput));
     arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
     arrayNumPingPonged.forEach(function(outputListElement){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
   });
 
-  $("#btnMode1").click(function(){ /* remove */
-    mode = 1;  /* remove */
+  $("#btnMode1").click(function(){
+    mode = 1;
     $("html").removeClass("pingPongAnime");
     $("html").addClass("standardClass");
   })
 
-  $("#btnMode2").click(function(){ /* remove */
-    mode = 2;  /* remove */
+  $("#btnMode2").click(function(){
+    mode = 2;
     $("html").removeClass("standardClass");
     $("html").addClass("pingPongAnime");
   })
-/* test AREA start  I should work on it I want the stepByStep feature */
-
-  // $("#step").click(function(){
-  //   if (stepCounter < userInput){
-  //   $("#output").append("<li>" +arrayNumPingPonged[stepCounter] + "</li>");
-  //   stepCounter ++;
-  //   console.log(stepCounter);
-  //   };
-  // })
-
-/* test AREA end */
 })
-
-
 
 /* user interface logic END */
