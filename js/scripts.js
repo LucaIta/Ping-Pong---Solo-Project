@@ -15,14 +15,26 @@ var contToUserInput = function(numberToReach){
 var pingPongFunction = function(arrayToModify){
   indexPosition = 0;
   arrayToModify.forEach(function(numberToCheck){
-  if (numberToCheck % 15 === 0) {
-    arrayToModify[indexPosition] = "pingpong";
-  } else if (numberToCheck % 5 === 0) {
-    arrayToModify[indexPosition] = "pong";
-  } else if (numberToCheck % 3 === 0) {
-    arrayToModify[indexPosition] = "ping";
-  }
-  indexPosition ++;
+    if (mode === 1){
+      if (numberToCheck % 15 === 0) {
+        arrayToModify[indexPosition] = "pingpong";
+      } else if (numberToCheck % 5 === 0) {
+        arrayToModify[indexPosition] = "pong";
+      } else if (numberToCheck % 3 === 0) {
+        arrayToModify[indexPosition] = "ping";
+      };
+
+    } else if (mode === 2){
+      if (numberToCheck % 15 === 0) {
+        arrayToModify[indexPosition] = "<img src=img/ping2.gif>";
+      } else if (numberToCheck % 5 === 0) {
+        arrayToModify[indexPosition] = "pongmode 2";
+      } else if (numberToCheck % 3 === 0) {
+        arrayToModify[indexPosition] = "pingmode 2";
+      };
+    };
+
+    indexPosition ++;
   });
   return arrayToModify;
 };
@@ -31,8 +43,9 @@ var pingPongFunction = function(arrayToModify){
 
 /* user interface logic START */
 
+var mode = 1; /* remove */
+
 $(document).ready(function(){
-  var mode = 1; /* remove */
   $("form").submit(function(event){
     event.preventDefault();
     $("ul").empty();
@@ -43,17 +56,17 @@ $(document).ready(function(){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
   });
-  
-    $("#btnMode1").click(function(){ /* remove */
-      mode = 1;  /* remove */
-      console.log(mode); /* remove */
-    })
 
-   $("#btnMode2").click(function(){ /* remove */
-     mode = 2;  /* remove */
-     console.log(mode); /* remove */
-   })
+  $("#btnMode1").click(function(){ /* remove */
+    mode = 1;  /* remove */
+    console.log(mode); /* remove */
   })
+
+  $("#btnMode2").click(function(){ /* remove */
+    mode = 2;  /* remove */
+    console.log(mode); /* remove */
+  })
+})
 
 
 /* user interface logic END */
