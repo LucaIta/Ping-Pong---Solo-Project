@@ -35,10 +35,10 @@ var pingPongFunction = function(arrayToModify){
 $(document).ready(function(){
   $("form").submit(function(event){
     event.preventDefault();
+    $("ul").empty();
     var userInput = (parseInt($("#userInput").val()));
     var arrayNumUpToUserInput = (contToUserInput(userInput));
     var arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
-    console.log(arrayNumPingPonged);
     arrayNumPingPonged.forEach(function(outputListElement){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
