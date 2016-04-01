@@ -1,4 +1,16 @@
-img {
-  width: 100px;
+.standardClass img , .pingPongAnime img {
+  width: 180px;
   height: auto;
+}
+
+.standardClass body {
+  background-color:  #e6f9ff;
+  font
+}
+
+.standardClass h1 , .standardClass h4 , .standardClass h5 {
+  color:   #4775d1;
+}
+
+.pingPongAnime {
 }

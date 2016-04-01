@@ -26,11 +26,11 @@ var pingPongFunction = function(arrayToModify){
 
     } else if (mode === 2){
       if (numberToCheck % 15 === 0) {
-        arrayToModify[indexPosition] = "<img src=img/ping2.gif>";
+        arrayToModify[indexPosition] = "<img src=img/ping.gif>";
       } else if (numberToCheck % 5 === 0) {
-        arrayToModify[indexPosition] = "pongmode 2";
+        arrayToModify[indexPosition] = "<img src=img/pingpong.gif>";
       } else if (numberToCheck % 3 === 0) {
-        arrayToModify[indexPosition] = "pingmode 2";
+        arrayToModify[indexPosition] = "<img src=img/pingpong2.gif>";
       };
     };
 
@@ -44,12 +44,14 @@ var pingPongFunction = function(arrayToModify){
 /* user interface logic START */
 
 var mode = 1; /* remove */
+var stepCounter = 0; /* remove */
+var userInput = 0;
 
 $(document).ready(function(){
   $("form").submit(function(event){
     event.preventDefault();
     $("ul").empty();
-    var userInput = (parseInt($("#userInput").val()));
+    userInput = (parseInt($("#userInput").val()));
     var arrayNumUpToUserInput = (contToUserInput(userInput));
     var arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
     arrayNumPingPonged.forEach(function(outputListElement){
@@ -60,13 +62,28 @@ $(document).ready(function(){
   $("#btnMode1").click(function(){ /* remove */
     mode = 1;  /* remove */
     console.log(mode); /* remove */
+    $("body").removeClass("pingPongAnime");
+    $("body").addClass("standardClass");
   })
 
   $("#btnMode2").click(function(){ /* remove */
     mode = 2;  /* remove */
     console.log(mode); /* remove */
+    $("body").removeClass("standardClass");
+    $("body").addClass("pingPongAnime");
   })
+/* test AREA start */
+
+  $("#step").click(function(){
+    if (stepCounter < userInput){
+    stepCounter ++;
+    console.log(stepCounter);
+    };
+  })
+
+/* test AREA end */
 })
+
 
 
 /* user interface logic END */
