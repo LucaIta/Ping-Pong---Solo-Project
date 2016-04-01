@@ -27,13 +27,12 @@ var pingPongFunction = function(arrayToModify){
   return arrayToModify;
 };
 
-
-
 /* businnes logic END */
 
 /* user interface logic START */
 
 $(document).ready(function(){
+  var mode = 0; /* remove */
   $("form").submit(function(event){
     event.preventDefault();
     $("ul").empty();
@@ -44,7 +43,10 @@ $(document).ready(function(){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
   });
-    // $("#output").append(<li></li>)
+   $("#btnMode2").click(function(){ /* remove */
+     mode = 1;  /* remove */
+     console.log(mode); /* remove */
+   })
   })
 
 
