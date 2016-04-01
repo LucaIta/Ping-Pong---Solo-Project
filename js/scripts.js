@@ -32,7 +32,7 @@ var pingPongFunction = function(arrayToModify){
 /* user interface logic START */
 
 $(document).ready(function(){
-  var mode = 0; /* remove */
+  var mode = 1; /* remove */
   $("form").submit(function(event){
     event.preventDefault();
     $("ul").empty();
@@ -43,8 +43,14 @@ $(document).ready(function(){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
   });
+  
+    $("#btnMode1").click(function(){ /* remove */
+      mode = 1;  /* remove */
+      console.log(mode); /* remove */
+    })
+
    $("#btnMode2").click(function(){ /* remove */
-     mode = 1;  /* remove */
+     mode = 2;  /* remove */
      console.log(mode); /* remove */
    })
   })
