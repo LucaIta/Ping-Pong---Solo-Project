@@ -11,6 +11,7 @@ _It replaces certain numbers with either words or gifs_
 ## Setup/Installation Requirements
 
 * _open the following link with the browser: http://lucaita.github.io/Ping-Pong---Solo-Project/_
+* _there is also this improved versione of the page, it contains an additional function which I added an Saturday, it also cointains a better separation between user and businness logic; https://github.com/LucaIta/Ping-Pong---Solo-Project
 
 ## Known Bugs
 
