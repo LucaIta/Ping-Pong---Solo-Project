@@ -10,6 +10,8 @@ var contToUserInput = function(numberToReach){
   return arrayNum;
 }
 
+/* this following function display the output to the user */
+
 var outputDisplayer = function(elementsToDisplay){
   elementsToDisplay.forEach(function(elementToDisplay){
     $("#output").append("<li>" + elementToDisplay + "</li>")
@@ -21,7 +23,7 @@ var outputDisplayer = function(elementsToDisplay){
 var pingPongFunction = function(arrayToModify){
   indexPosition = 0;
   arrayToModify.forEach(function(numberToCheck){
-    if (mode === 1){
+    if (mode === 1 || mode === 3){
       if (numberToCheck % 15 === 0) {
         arrayToModify[indexPosition] = "pingpong";
       } else if (numberToCheck % 5 === 0) {
@@ -47,8 +49,6 @@ var pingPongFunction = function(arrayToModify){
   return arrayToModify;
 };
 
-
-
 /* businnes logic END */
 
 /* user interface logic START */
@@ -57,6 +57,7 @@ var mode = 1;
 var userInput = 0;
 var arrayNumUpToUserInput = [];
 var arrayNumPingPonged = [];
+var clicks = 0;
 
 $(document).ready(function(){
   $("form").submit(function(event){
@@ -65,11 +66,12 @@ $(document).ready(function(){
     userInput = (parseInt($("#userInput").val()));
     arrayNumUpToUserInput = (contToUserInput(userInput));
     arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
-    outputDisplayer(arrayNumPingPonged);
-    // arrayNumPingPonged.forEach(function(outputListElement){
-    //   $("#output").append("<li>" + outputListElement + "</li>")
-    // });
-
+    if (mode === 1 || mode ===2){
+      outputDisplayer(arrayNumPingPonged);
+    } else {
+      $("#output").append("<li>" + arrayNumPingPonged[clicks] + "</li>");
+      clicks ++;
+    }
   });
 
   $("#btnMode1").click(function(){
@@ -83,6 +85,26 @@ $(document).ready(function(){
     $("html").removeClass();
     $("html").addClass("pingPongAnime");
   })
+
+/* the following 2 buttons control the step mode */
+
+  $("#stepMode").click(function(){
+    $("ul").empty();
+    mode = 3;
+    $("button#stepper").show();
+    $("button#stepMode").hide();
+  })
+
+  $("#stepper").click(function(){
+    if (clicks < userInput){
+    $("#output").append("<li>" + arrayNumPingPonged[clicks] + "</li>")
+    clicks ++;
+    } else {
+      clicks = 0;
+      $("button#stepper").hide();
+      $("button#stepMode").show();
+    };
+  });
 })
 
 /* user interface logic END */
