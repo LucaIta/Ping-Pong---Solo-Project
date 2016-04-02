@@ -10,6 +10,12 @@ var contToUserInput = function(numberToReach){
   return arrayNum;
 }
 
+var outputDisplayer = function(elementsToDisplay){
+  elementsToDisplay.forEach(function(elementToDisplay){
+    $("#output").append("<li>" + elementToDisplay + "</li>")
+  });
+};
+
 /* this following function replace certain numbers with the words Ping and Pong */
 
 var pingPongFunction = function(arrayToModify){
@@ -59,10 +65,10 @@ $(document).ready(function(){
     userInput = (parseInt($("#userInput").val()));
     arrayNumUpToUserInput = (contToUserInput(userInput));
     arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
-
-    arrayNumPingPonged.forEach(function(outputListElement){
-      $("#output").append("<li>" + outputListElement + "</li>")
-    });
+    outputDisplayer(arrayNumPingPonged);
+    // arrayNumPingPonged.forEach(function(outputListElement){
+    //   $("#output").append("<li>" + outputListElement + "</li>")
+    // });
 
   });
 
