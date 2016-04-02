@@ -24,7 +24,7 @@ var pingPongFunction = function(arrayToModify){
         arrayToModify[indexPosition] = "ping";
       };
 
-/* this following function replace certain numbers with gifs instead of words */
+/* this section of the function replace certain numbers with gifs instead of words */
 
     } else if (mode === 2){
       if (numberToCheck % 15 === 0) {
@@ -41,14 +41,16 @@ var pingPongFunction = function(arrayToModify){
   return arrayToModify;
 };
 
+
+
 /* businnes logic END */
 
 /* user interface logic START */
 
 var mode = 1;
 var userInput = 0;
-var arrayNumPingPonged = [];
 var arrayNumUpToUserInput = [];
+var arrayNumPingPonged = [];
 
 $(document).ready(function(){
   $("form").submit(function(event){
@@ -57,20 +59,22 @@ $(document).ready(function(){
     userInput = (parseInt($("#userInput").val()));
     arrayNumUpToUserInput = (contToUserInput(userInput));
     arrayNumPingPonged = (pingPongFunction(arrayNumUpToUserInput));
+
     arrayNumPingPonged.forEach(function(outputListElement){
       $("#output").append("<li>" + outputListElement + "</li>")
     });
+
   });
 
   $("#btnMode1").click(function(){
     mode = 1;
-    $("html").removeClass("pingPongAnime");
+    $("html").removeClass();
     $("html").addClass("standardClass");
   })
 
   $("#btnMode2").click(function(){
     mode = 2;
-    $("html").removeClass("standardClass");
+    $("html").removeClass();
     $("html").addClass("pingPongAnime");
   })
 })
